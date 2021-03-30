@@ -2,7 +2,7 @@ import requests
 import os
 import random
 
-from mongo_headler import get_all_documents_from_mongo_collection, sum_documents_in_jsons, insert_images_into_mongo, \
+from mongo_headler import get_all_documents_from_mongo_collection, sum_documents_in_jsons_dir, insert_images_into_mongo, \
     insert_questions_to_mongo, get_images_from_mongo_by_year
 from jsons_files_handler import count_images_in_jsons, check_images_years_month_dist
 from flask import Flask
@@ -36,11 +36,6 @@ def get_images_by_year():
     except KeyError:
         return None
 
-
-def get_all_documents_from_mongo_collection(collection):
-    cursor = collection.find({})
-    for document in cursor:
-        print(document)
 
 
 def yad_va_shem():
