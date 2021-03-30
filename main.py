@@ -1,18 +1,12 @@
 import requests
 import os
-import json
-import matplotlib.pyplot as plt
-import base64
 import random
 
 from mongo_headler import get_all_documents_from_mongo_collection, sum_documents_in_jsons, insert_images_into_mongo, \
     insert_questions_to_mongo, get_images_from_mongo_by_year
+from jsons_files_handler import count_images_in_jsons, check_images_years_month_dist
 from flask import Flask
 from pymongo import MongoClient
-from dateutil.parser import parse
-from dateutil.parser import ParserError
-from calendar import IllegalMonthError
-from bs4 import BeautifulSoup
 from flask import request
 
 
@@ -74,35 +68,6 @@ def yad_va_shem():
     print(content)
     # soup = BeautifulSoup(content, 'html.parser')
     # print(soup.findChildren('table'))
-
-
-def sum_documents_in_jsons(curr_dir, images_jsons_dir):
-    documents_sum = 0
-    for filename in os.listdir(images_jsons_dir):
-        full_filename = os.path.join(curr_dir, '{}/{}'.format(images_jsons_dir, filename))
-        with open(full_filename, 'r') as f:
-            documents_dict = json.load(f)
-            documents_sum += len(documents_dict['d'])
-    return documents_sum
-
-
-def check_images_years_month_dist(curr_dir, images_jsons_dir):
-    years = []
-    months = []
-    for filename in os.listdir(images_jsons_dir):
-        full_filename = os.path.join(curr_dir, '{}/{}'.format(images_jsons_dir, filename))
-        with open(full_filename, 'r') as f:
-            documents_dict = json.load(f)
-            for document in documents_dict['d']:
-                try:
-                    years.append(parse(document["title"], fuzzy=True).year)
-                    months.append(parse(document["title"], fuzzy=True).month)
-                except (ParserError, IllegalMonthError, TypeError):
-                    pass
-    plt.hist(years, bins=100, range=[1850, 2100])
-    plt.show()
-    plt.hist(months, bins=100, range=[0, 30])
-    plt.show()
 
 
 if __name__ == '__main__':
