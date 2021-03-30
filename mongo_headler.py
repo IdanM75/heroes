@@ -1,23 +1,16 @@
 import os
 import json
+import random
 from dateutil.parser import parse, ParserError
 from calendar import IllegalMonthError
 
 
 def get_all_documents_from_mongo_collection(collection):
-    cursor = collection.find({})
-    for document in cursor:
-        print(document)
+    return list(collection.find({}))
 
 
-def sum_documents_in_jsons_dir(curr_dir, images_jsons_dir):
-    documents_sum = 0
-    for filename in os.listdir(images_jsons_dir):
-        full_filename = os.path.join(curr_dir, '{}/{}'.format(images_jsons_dir, filename))
-        with open(full_filename, 'r') as f:
-            documents_dict = json.load(f)
-            documents_sum += len(documents_dict['d'])
-    return documents_sum
+def delete_all_documents_in_mongo_collection(collection):
+    collection.delete_many({})
 
 
 def insert_images_to_mongo(curr_dir, images_jsons_dir, images_collection):
@@ -56,6 +49,14 @@ def insert_questions_to_mongo(curr_dir, questions_jsons_dir, questions_collectio
                     pass
 
 
-def get_images_from_mongo_by_year(images_collection, year):
+def _get_images_from_mongo_by_year(images_collection, year):
     cursor = images_collection.find({"year": year})
     return [image["multimedia"] for image in cursor]
+
+
+def get_random_image_from_mongo_by_year(images_collection, year):
+    try:
+        images = _get_images_from_mongo_by_year(images_collection, year)
+        return random.choice(images)
+    except IndexError:
+        return None

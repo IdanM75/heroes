@@ -2,8 +2,8 @@ import requests
 import os
 import random
 
-from mongo_headler import get_all_documents_from_mongo_collection, sum_documents_in_jsons_dir, insert_images_into_mongo, \
-    insert_questions_to_mongo, get_images_from_mongo_by_year
+from mongo_headler import get_all_documents_from_mongo_collection, insert_images_to_mongo, insert_questions_to_mongo,\
+    get_random_image_from_mongo_by_year
 from jsons_files_handler import count_images_in_jsons, check_images_years_month_dist
 from flask import Flask
 from pymongo import MongoClient
@@ -21,21 +21,24 @@ def hello():
 @app.route("/get_questions")
 def get_questions():
     try:
-        pass
+        questions = get_all_documents_from_mongo_collection(QUESTIONS_COLLECTION)
+        for question in questions:
+            question.pop('_id', None)
+            question["type"] = "img"
+            question["image_url"] = get_random_image_from_mongo_by_year(IMAGES_COLLECTION, int(question["year"]))
+        return {"questions": questions}
     except KeyError:
         return
 
 
-@app.route("/get_images_by_year")
-def get_images_by_year():
+@app.route("/get_random_image_by_year")
+def get_random_image_by_year():
     try:
         year = int(request.args.get('year'))
-        images = get_images_from_mongo_by_year(IMAGES_COLLECTION, year)
-        random.shuffle(images)
-        return {"images": images[:5]}
+        image = get_random_image_from_mongo_by_year(IMAGES_COLLECTION, year)
+        return {"image": image}
     except KeyError:
         return None
-
 
 
 def yad_va_shem():
@@ -68,16 +71,9 @@ def yad_va_shem():
 if __name__ == '__main__':
     mongo_client = MongoClient("localhost", 27017)
     heroes_db = mongo_client["heroes_hackathon"]
-    QYESTIONS_COLLECTION = heroes_db["questions_collection"]
+    QUESTIONS_COLLECTION = heroes_db["questions_collection"]
     IMAGES_COLLECTION = heroes_db["images_collection"]
 
     curr_dirname = os.path.dirname(__file__)
-
-    # print(get_images_from_mongo_by_year(IMAGES_COLLECTION, 2021))
-    # check_images_years_month_dist(curr_dirname, "jsons/images")
-    # search_documents_in_mongo(images_collection)
-    # insert_images_into_mongo(curr_dirname, "jsons/images", images_collection)
-    # questions_collection.delete_many({})
-    # app.run()
-
-    print(requests.get("https://photos.yadvashem.org/index.html?language=he&displayType=image&strSearch=%D7%9C%D7%99%D7%9C%20%D7%94%D7%91%D7%93%D7%95%D7%9C%D7%97").content)
+    # get_all_documents_from_mongo_collection(QUESTIONS_COLLECTION)
+    app.run()
