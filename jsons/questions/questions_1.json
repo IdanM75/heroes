@@ -1,0 +1,268 @@
+{
+  "questions": [
+    {
+      "questionText": "מה היא אקציה ? : ",
+      "category": "ידע כללי",
+      "year": "1933",
+      "extension": "",
+      "answerOptions": [
+        {
+          "answerText": "פעולה של חטיפת יהודים מהרחובות והבתים לצורך שילוחם למחנות השמדה",
+          "isCorrect": true
+        },
+        {
+          "answerText": "סוג של מחלה קטלנית שהתפשטה בגטו לודג' ",
+          "isCorrect": false
+        },
+        {
+          "answerText": "פעולה צבאית של ארגון צבאי יהודי כנגד הגרמנים",
+          "isCorrect": false
+        },
+        {
+          "answerText": "אף תשובה אינה נכונה ",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "questionText": "מהן שלושת הקטגוריות של האנושות על פי היטלר ? ",
+      "category": "נאציזם",
+      "year": "1934",
+      "extension": "",
+      "answerOptions": [
+        {
+          "answerText": "יוצרי תרבות, נשאי תרבות ומהרסי תרבות",
+          "isCorrect": true
+        },
+        {
+          "answerText": "גזע עליון, גזע בינוני ,גזע נחות ",
+          "isCorrect": false
+        },
+        {
+          "answerText": "יהודים/צוענים, פולנים, גרמנים",
+          "isCorrect": false
+        },
+        {
+          "answerText": "היטלר לא חילק את האנושות לקטגוריות, הוא רצח עם ",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "questionText": "  בחוקי 'נירנברג' נקבע:",
+      "category": "נאציזם",
+      "year": "1935",
+      "extension": "",
+      "answerOptions": [
+        {
+          "answerText": " שזכויותיהם של היהודים נשללו",
+          "isCorrect": false
+        },
+        {
+          "answerText": "שנישואין בין יהודים לגרמנים אסורים",
+          "isCorrect": false
+        },
+        {
+          "answerText": " שרק אזרחים בעלי דם גרמני זכאים לזכויות אזרח ",
+          "isCorrect": false
+        },
+        {
+          "answerText": "כל התשובות נכונות ",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "questionText": " מי היה מנהיג מרד גטו ורשה ?",
+      "category": "מרד",
+      "year": "1943",
+      "extension": "",
+      "answerOptions": [
+        {
+          "answerText": " יאנוש קורצק",
+          "isCorrect": false
+        },
+        {
+          "answerText": "מרדכי אנילביץ",
+          "isCorrect": true
+        },
+        {
+          "answerText": " ראול ולנברג ",
+          "isCorrect": false
+        },
+        {
+          "answerText": "אף תשובה אינה  נכונה",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "questionText": " מה הייחודיות של מרד גטו ורשה  לעומת פעולות מרד אחרים ?",
+      "category": "מרד",
+      "year": "1943",
+      "extension": "",
+      "answerOptions": [
+        {
+          "answerText": " מרד זה היה המרד הגדול ביותר של יהודים בתקופת השואה ",
+          "isCorrect": false
+        },
+        {
+          "answerText": "כל אוכלוסיית הגטו שיתפה פעולה במרד",
+          "isCorrect": false
+        },
+        {
+          "answerText": " במרד גטו ורשה לא הייתה ללוחמים דילמה בשאלה האם לברוח אל היער או להמשיך למרוד בתוך הגטו",
+          "isCorrect": false
+        },
+        {
+          "answerText": "כל התשובות נכונות ",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "questionText": " מי היה מנהיג מרד גטו ורשה ?",
+      "category": "??",
+      "year": "1943",
+      "extension": "",
+      "answerOptions": [
+        {
+          "answerText": " שזכויותיהם של היהודים נשללו",
+          "isCorrect": false
+        },
+        {
+          "answerText": "מרדכי אנילביץ",
+          "isCorrect": false
+        },
+        {
+          "answerText": " שרק אזרחים בעלי דם גרמני זכאים לזכויות אזרח ",
+          "isCorrect": false
+        },
+        {
+          "answerText": "כל התשובות נכונות ",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "questionText": " מי היה מנהיג מרד גטו ורשה ?",
+      "category": "??",
+      "year": "1943",
+      "extension": "",
+      "answerOptions": [
+        {
+          "answerText": " שזכויותיהם של היהודים נשללו",
+          "isCorrect": false
+        },
+        {
+          "answerText": "מרדכי אנילביץ",
+          "isCorrect": false
+        },
+        {
+          "answerText": " שרק אזרחים בעלי דם גרמני זכאים לזכויות אזרח ",
+          "isCorrect": false
+        },
+        {
+          "answerText": "כל התשובות נכונות ",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "questionText": " מי היה מנהיג מרד גטו ורשה ?",
+      "category": "??",
+      "year": "1943",
+      "extension": "מרדכי אנילביץ - מפקד הארגון היהודי הלוחם במרד גטו ורשה. נהרג בקרב מול הנאצים בגטו. בחייו ניחן בכושר מנהיגות בולט, ולאחר מותו נחרטה אישיותו כסמל לאומץ ולהקרבה עד היום מייצגת דמותו את ההתנגדות היהודית בשואה.",
+      "answerOptions": [
+        {
+          "answerText": " שזכויותיהם של היהודים נשללו",
+          "isCorrect": false
+        },
+        {
+          "answerText": "מרדכי אנילביץ",
+          "isCorrect": false
+        },
+        {
+          "answerText": " שרק אזרחים בעלי דם גרמני זכאים לזכויות אזרח ",
+          "isCorrect": false
+        },
+        {
+          "answerText": "כל התשובות נכונות ",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "questionText": " מי היה מנהיג מרד גטו ורשה ?",
+      "category": "??",
+      "year": "1943",
+      "extension": "",
+      "answerOptions": [
+        {
+          "answerText": " שזכויותיהם של היהודים נשללו",
+          "isCorrect": false
+        },
+        {
+          "answerText": "מרדכי אנילביץ",
+          "isCorrect": false
+        },
+        {
+          "answerText": " שרק אזרחים בעלי דם גרמני זכאים לזכויות אזרח ",
+          "isCorrect": false
+        },
+        {
+          "answerText": "כל התשובות נכונות ",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "questionText": " מי היה מנהיג מרד גטו ורשה ?",
+      "category": "??",
+      "year": "1943",
+      "extension": "",
+      "answerOptions": [
+        {
+          "answerText": " שזכויותיהם של היהודים נשללו",
+          "isCorrect": false
+        },
+        {
+          "answerText": "מרדכי אנילביץ",
+          "isCorrect": false
+        },
+        {
+          "answerText": " שרק אזרחים בעלי דם גרמני זכאים לזכויות אזרח ",
+          "isCorrect": false
+        },
+        {
+          "answerText": "כל התשובות נכונות ",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "questionText": " ספרו של היטלר נקרא:",
+      "category": "??",
+      "year": "1943",
+      "extension": "",
+      "answerOptions": [
+        {
+          "answerText": "מדינת הגרמנים",
+          "isCorrect": false
+        },
+        {
+          "answerText": "הספר הלבן ",
+          "isCorrect": false
+        },
+        {
+          "answerText": "מיין קאמף",
+          "isCorrect": true
+        },
+        {
+          "answerText": "הנציונאל-סוציאליזם ",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}
