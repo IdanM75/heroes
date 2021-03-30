@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import base64
 import random
 
+from mongo_headler import get_all_documents_from_mongo_collection, sum_documents_in_jsons, insert_images_into_mongo, \
+    insert_questions_to_mongo, get_images_from_mongo_by_year
 from flask import Flask
 from pymongo import MongoClient
 from dateutil.parser import parse
@@ -41,12 +43,6 @@ def get_images_by_year():
         return None
 
 
-def get_all_documents_from_mongo_collection(collection):
-    cursor = collection.find({})
-    for document in cursor:
-        print(document)
-
-
 def yad_va_shem():
     content = requests.post("https://photos.yadvashem.org/PhotosWS.asmx/getPhotosList", headers={
         "Accept": "application/json, text/javascript, */*; q=0.01",
@@ -74,15 +70,6 @@ def yad_va_shem():
     # print(soup.findChildren('table'))
 
 
-def sum_documents_in_jsons(curr_dir, images_jsons_dir):
-    documents_sum = 0
-    for filename in os.listdir(images_jsons_dir):
-        full_filename = os.path.join(curr_dir, '{}/{}'.format(images_jsons_dir, filename))
-        with open(full_filename, 'r') as f:
-            documents_dict = json.load(f)
-            documents_sum += len(documents_dict['d'])
-    return documents_sum
-
 
 def check_images_years_month_dist(curr_dir, images_jsons_dir):
     years = []
@@ -101,48 +88,6 @@ def check_images_years_month_dist(curr_dir, images_jsons_dir):
     plt.show()
     plt.hist(months, bins=100, range=[0, 30])
     plt.show()
-
-
-def insert_images_into_mongo(curr_dir, images_jsons_dir, images_collection):
-    for filename in os.listdir(images_jsons_dir):
-        full_filename = os.path.join(curr_dir, '{}/{}'.format(images_jsons_dir, filename))
-        with open(full_filename, 'r') as f:
-            images_dict_list = json.load(f)
-            for image_dict in images_dict_list['d']:
-                try:
-                    doc_year = parse(image_dict["title"], fuzzy=True).year
-                    desired_document = {
-                        "book_id": image_dict["book_id"],
-                        "multimedia": image_dict["multimedia"],
-                        "multimedia_bk": image_dict["multimedia_bk"],
-                        "title": image_dict["title"],
-                        "archivalsignature": image_dict["archivalsignature"],
-                        "credit": image_dict["credit"],
-                        "year": doc_year
-                    }
-                    doc_id = images_collection.insert_one(desired_document).inserted_id
-                    print(doc_id)
-                except (ParserError, IllegalMonthError, TypeError):
-                    pass
-
-
-def insert_questions_to_mongo(curr_dir, questions_jsons_dir, questions_collection):
-    for filename in os.listdir(questions_jsons_dir):
-        full_filename = os.path.join(curr_dir, '{}/{}'.format(questions_jsons_dir, filename))
-        with open(full_filename, 'r') as f:
-            documents_dict = json.load(f)
-            for document in documents_dict:
-                try:
-                    desired_document = {}
-                    doc_id = questions_collection.insert_one(desired_document).inserted_id
-                    print(doc_id)
-                except (ParserError, IllegalMonthError, TypeError):
-                    pass
-
-
-def get_images_from_mongo_by_year(images_collection, year):
-    cursor = images_collection.find({"year": year})
-    return [image["multimedia"] for image in cursor]
 
 
 if __name__ == '__main__':
