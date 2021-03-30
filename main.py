@@ -37,12 +37,6 @@ def get_images_by_year():
         return None
 
 
-def get_all_documents_from_mongo_collection(collection):
-    cursor = collection.find({})
-    for document in cursor:
-        print(document)
-
-
 def yad_va_shem():
     content = requests.post("https://photos.yadvashem.org/PhotosWS.asmx/getPhotosList", headers={
         "Accept": "application/json, text/javascript, */*; q=0.01",

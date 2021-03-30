@@ -8,6 +8,12 @@ def get_all_documents_from_mongo_collection(collection):
         print(document)
 
 
+def get_all_documents_from_mongo_collection(collection):
+    cursor = collection.find({})
+    for document in cursor:
+        print(document)
+
+
 def sum_documents_in_jsons(curr_dir, images_jsons_dir):
     documents_sum = 0
     for filename in os.listdir(images_jsons_dir):
