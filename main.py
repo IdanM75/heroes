@@ -2,13 +2,17 @@ import requests
 import os
 import json
 import matplotlib.pyplot as plt
+import base64
 import random
 
+from mongo_headler import get_all_documents_from_mongo_collection, sum_documents_in_jsons, insert_images_into_mongo, \
+    insert_questions_to_mongo, get_images_from_mongo_by_year
 from flask import Flask
 from pymongo import MongoClient
 from dateutil.parser import parse
 from dateutil.parser import ParserError
 from calendar import IllegalMonthError
+from bs4 import BeautifulSoup
 from flask import request
 
 
@@ -23,10 +27,7 @@ def hello():
 @app.route("/get_questions")
 def get_questions():
     try:
-        questions = get_all_documents_from_mongo_collection(QUESTIONS_COLLECTION)
-        for question in questions:
-            question["img_type"]
-        return {"questions":  questions}
+        pass
     except KeyError:
         return
 
@@ -37,7 +38,7 @@ def get_images_by_year():
         year = int(request.args.get('year'))
         images = get_images_from_mongo_by_year(IMAGES_COLLECTION, year)
         random.shuffle(images)
-        return {"__images_old": images[:5]}
+        return {"images": images[:5]}
     except KeyError:
         return None
 
@@ -104,55 +105,19 @@ def check_images_years_month_dist(curr_dir, images_jsons_dir):
     plt.show()
 
 
-def insert_images_into_mongo(curr_dir, images_jsons_dir, images_collection):
-    for filename in os.listdir(images_jsons_dir):
-        full_filename = os.path.join(curr_dir, '{}/{}'.format(images_jsons_dir, filename))
-        with open(full_filename, 'r') as f:
-            images_dict_list = json.load(f)
-            for image_dict in images_dict_list['d']:
-                try:
-                    doc_year = parse(image_dict["title"], fuzzy=True).year
-                    desired_document = {
-                        "book_id": image_dict["book_id"],
-                        "multimedia": image_dict["multimedia"],
-                        "multimedia_bk": image_dict["multimedia_bk"],
-                        "title": image_dict["title"],
-                        "archivalsignature": image_dict["archivalsignature"],
-                        "credit": image_dict["credit"],
-                        "year": doc_year
-                    }
-                    doc_id = images_collection.insert_one(desired_document).inserted_id
-                    print(doc_id)
-                except (ParserError, IllegalMonthError, TypeError):
-                    pass
-
-
-def insert_questions_to_mongo(curr_dir, questions_jsons_dir, questions_collection):
-    for filename in os.listdir(questions_jsons_dir):
-        full_filename = os.path.join(curr_dir, '{}/{}'.format(questions_jsons_dir, filename))
-        with open(full_filename, 'r') as f:
-            documents_dict = json.load(f)
-            for document in documents_dict["questions"]:
-                try:
-                    doc_id = questions_collection.insert_one(document).inserted_id
-                    print(doc_id)
-                except (ParserError, IllegalMonthError, TypeError):
-                    pass
-
-
-def get_images_from_mongo_by_year(images_collection, year):
-    cursor = images_collection.find({"year": year})
-    return [image["multimedia"] for image in cursor]
-
-
 if __name__ == '__main__':
     mongo_client = MongoClient("localhost", 27017)
     heroes_db = mongo_client["heroes_hackathon"]
-    QUESTIONS_COLLECTION = heroes_db["questions_collection"]
+    QYESTIONS_COLLECTION = heroes_db["questions_collection"]
     IMAGES_COLLECTION = heroes_db["images_collection"]
 
     curr_dirname = os.path.dirname(__file__)
 
-    # insert_questions_to_mongo(curr_dirname, "jsons/questions", QUESTIONS_COLLECTION)
-    print(get_all_documents_from_mongo_collection(QUESTIONS_COLLECTION))
+    # print(get_images_from_mongo_by_year(IMAGES_COLLECTION, 2021))
+    # check_images_years_month_dist(curr_dirname, "jsons/images")
+    # search_documents_in_mongo(images_collection)
+    # insert_images_into_mongo(curr_dirname, "jsons/images", images_collection)
+    # questions_collection.delete_many({})
     # app.run()
+
+    print(requests.get("https://photos.yadvashem.org/index.html?language=he&displayType=image&strSearch=%D7%9C%D7%99%D7%9C%20%D7%94%D7%91%D7%93%D7%95%D7%9C%D7%97").content)
