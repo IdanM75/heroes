@@ -1,3 +1,7 @@
+import os
+import json
+
+
 def get_all_documents_from_mongo_collection(collection):
     cursor = collection.find({})
     for document in cursor:
