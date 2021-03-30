@@ -1,5 +1,7 @@
 import os
 import json
+from dateutil.parser import parse, ParserError
+from calendar import IllegalMonthError
 
 
 def get_all_documents_from_mongo_collection(collection):
@@ -8,13 +10,7 @@ def get_all_documents_from_mongo_collection(collection):
         print(document)
 
 
-def get_all_documents_from_mongo_collection(collection):
-    cursor = collection.find({})
-    for document in cursor:
-        print(document)
-
-
-def sum_documents_in_jsons(curr_dir, images_jsons_dir):
+def sum_documents_in_jsons_dir(curr_dir, images_jsons_dir):
     documents_sum = 0
     for filename in os.listdir(images_jsons_dir):
         full_filename = os.path.join(curr_dir, '{}/{}'.format(images_jsons_dir, filename))
@@ -24,7 +20,7 @@ def sum_documents_in_jsons(curr_dir, images_jsons_dir):
     return documents_sum
 
 
-def insert_images_into_mongo(curr_dir, images_jsons_dir, images_collection):
+def insert_images_to_mongo(curr_dir, images_jsons_dir, images_collection):
     for filename in os.listdir(images_jsons_dir):
         full_filename = os.path.join(curr_dir, '{}/{}'.format(images_jsons_dir, filename))
         with open(full_filename, 'r') as f:
@@ -54,8 +50,7 @@ def insert_questions_to_mongo(curr_dir, questions_jsons_dir, questions_collectio
             documents_dict = json.load(f)
             for document in documents_dict:
                 try:
-                    desired_document = {}
-                    doc_id = questions_collection.insert_one(desired_document).inserted_id
+                    doc_id = questions_collection.insert_one(document).inserted_id
                     print(doc_id)
                 except (ParserError, IllegalMonthError, TypeError):
                     pass
