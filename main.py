@@ -1,7 +1,7 @@
 import os
 import random
 
-from mongo_headler import get_all_documents_from_mongo_collection, get_random_image_from_mongo_by_year, \
+from mongo_headler import get_all_documents_from_mongo_collection, get_random_image_from_mongo_by_category, \
     repopulate_images_collection, repopulate_questions_collection
 from flask import Flask
 from pymongo import MongoClient
@@ -29,7 +29,7 @@ def get_all_questions():
             # if question["title"] == "מה הקשר בין כרזת התעמולה הנאצית לבין עליית הנאצים לשלטון?":
             question.pop('_id', None)
             question["type"] = "img"
-            question["image_url"] = get_random_image_from_mongo_by_year(IMAGES_COLLECTION, int(question["year"]))
+            question["image_url"] = get_random_image_from_mongo_by_category(IMAGES_COLLECTION, question["category"])
         return {"questions": questions}
     except (KeyError, ValueError):
         return {"error": "error"}
@@ -46,21 +46,21 @@ def get_top_10_random_sorted_questions():
         for question in questions[:10]:
             question.pop('_id', None)
             question["type"] = "img"
-            question["image_url"] = get_random_image_from_mongo_by_year(IMAGES_COLLECTION, int(question["year"]))
+            question["image_url"] = get_random_image_from_mongo_by_category(IMAGES_COLLECTION, question["category"])
         return {"questions": questions}
     except (KeyError, ValueError):
         return {"error": "error"}
 
 
-@app.route("/get_random_image_by_year")
-@cross_origin()
-def get_random_image_by_year():
-    try:
-        year = int(request.args.get('year'))
-        image = get_random_image_from_mongo_by_year(IMAGES_COLLECTION, year)
-        return {"image": image}
-    except KeyError:
-        return {"error": "error"}
+# @app.route("/get_random_image_by_year")
+# @cross_origin()
+# def get_random_image_by_year():
+#     try:
+#         year = int(request.args.get('year'))
+#         image = get_random_image_from_mongo_by_year(IMAGES_COLLECTION, year)
+#         return {"image": image}
+#     except KeyError:
+#         return {"error": "error"}
 
 
 if __name__ == '__main__':
