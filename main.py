@@ -39,10 +39,9 @@ def get_random_image_by_year():
 
 if __name__ == '__main__':
     mongo_client = MongoClient("localhost", 27017)
-    heroes_db = mongo_client["heroes_hackathon"]
-    QUESTIONS_COLLECTION = heroes_db["questions_collection"]
-    IMAGES_COLLECTION = heroes_db["images_collection"]
+    heroes_mongo_db = mongo_client["heroes_hackathon"]
+    QUESTIONS_COLLECTION = heroes_mongo_db["questions_collection"]
+    IMAGES_COLLECTION = heroes_mongo_db["images_collection"]
 
     curr_dirname = os.path.dirname(__file__)
-    # get_all_documents_from_mongo_collection(QUESTIONS_COLLECTION)
     app.run()
