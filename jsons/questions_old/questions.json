@@ -168,25 +168,6 @@
             { "answer_text": "בגלל הכמות העצומה של זכוכיות מנופצות שנגרמו מהרס החנויות ובתי הכנסת","isCorrect": true }
 	        ]
         },
-
-        {
-<<<<<<< Updated upstream:jsons/questions/questions.json
-        "question_text":"מה הם התנאים שהקשו על היהודים לארגן התקוממות נגד הנאצים",
-        "category":"ניצולי שואה",
-=======
-        "question_text":" מה הם התנאים שהקשו על היהודים לארגן התקוממות נגד הנאצים ",
-            "catagory":"ניצולי שואה",
->>>>>>> Stashed changes:jsons/questions/questions_2.json
-        "year":"1942",
-        "extension":"",
-        "answer_options": [
-            { "answer_text": "חוסר מוכנות וכושר ירוד של האסירים בגטאות: חולשה גופנית ונפשית עקב מחלות ורעב.","isCorrect": false },
-            { "answer_text": "האוכלוסייה האזרחית הלא יהודית - שחלקה הייתה עוינת להם ואנטישמית","isCorrect": false },
-            { "answer_text": "הנאצים נהגו לנקום ברצח רבים, כתגמול על מעשה התקוממות או ניסיון בריחה של מעטים, וקודם כל הריגת קרוביהם של אותם 'מפירי סדר'","isCorrect": false },
-            { "answer_text": "כל התשובות נכונות","isCorrect": true }
-	        ]
-        },
-
         {
         "question_text":"מהו פירוש המושג 'חסיד אומות העולם'?",
         "category":"חסידי אומות העולם",

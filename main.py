@@ -28,8 +28,8 @@ def get_all_questions():
         for question in questions:
             # if question["title"] == "מה הקשר בין כרזת התעמולה הנאצית לבין עליית הנאצים לשלטון?":
             question.pop('_id', None)
-            question["type"] = "img"
-            question["image_url"] = get_random_image_from_mongo_by_category(IMAGES_COLLECTION, question["category"])
+            # question["type"] = "img"
+            # question["image_url"] = get_random_image_from_mongo_by_category(IMAGES_COLLECTION, question["category"])
         return {"questions": questions}
     except (KeyError, ValueError):
         return {"error": "error"}
@@ -45,8 +45,8 @@ def get_top_10_random_sorted_questions():
         questions = sorted(questions, key=lambda k: k["year"])
         for question in questions[:10]:
             question.pop('_id', None)
-            question["type"] = "img"
-            question["image_url"] = get_random_image_from_mongo_by_category(IMAGES_COLLECTION, question["category"])
+            # question["type"] = "img"
+            # question["image_url"] = get_random_image_from_mongo_by_category(IMAGES_COLLECTION, question["category"])
         return {"questions": questions}
     except (KeyError, ValueError):
         return {"error": "error"}
