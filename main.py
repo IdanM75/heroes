@@ -1,7 +1,8 @@
 import os
 import random
 
-from mongo_headler import get_all_documents_from_mongo_collection, get_random_image_from_mongo_by_year
+from mongo_headler import get_all_documents_from_mongo_collection, get_random_image_from_mongo_by_year, \
+    repopulate_images_collection, repopulate_questions_collection
 from flask import Flask
 from pymongo import MongoClient
 from flask import request
@@ -9,7 +10,7 @@ from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__)
-cors = CORS(app)
+CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
 
@@ -29,7 +30,7 @@ def get_all_questions():
             question["type"] = "img"
             question["image_url"] = get_random_image_from_mongo_by_year(IMAGES_COLLECTION, int(question["year"]))
         return {"questions": questions}
-    except KeyError:
+    except (KeyError, ValueError):
         return {"error": "error"}
 
 
@@ -68,3 +69,7 @@ if __name__ == '__main__':
 
     curr_dirname = os.path.dirname(__file__)
     app.run()
+
+    # repopulate_questions_collection(curr_dirname, "jsons/questions", QUESTIONS_COLLECTION)
+    # repopulate_images_collection(curr_dirname, "jsons/images", IMAGES_COLLECTION)
+

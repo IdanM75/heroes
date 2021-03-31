@@ -54,3 +54,20 @@ def get_random_image_from_mongo_by_year(images_collection, year):
         return random.choice(images)
     except IndexError:
         return None
+
+
+def repopulate_questions_collection(curr_dir, questions_jsons_dir, questions_collection):
+    print(get_all_documents_from_mongo_collection(questions_collection))
+    delete_all_documents_in_mongo_collection(questions_collection)
+    print(get_all_documents_from_mongo_collection(questions_collection))
+    insert_questions_to_mongo(curr_dir, questions_jsons_dir, questions_collection)
+    print(get_all_documents_from_mongo_collection(questions_collection))
+
+
+def repopulate_images_collection(curr_dir, questions_jsons_dir, images_collection):
+    print(get_all_documents_from_mongo_collection(images_collection))
+    delete_all_documents_in_mongo_collection(images_collection)
+    print(get_all_documents_from_mongo_collection(images_collection))
+    insert_images_to_mongo(curr_dir, questions_jsons_dir, images_collection)
+    print(get_all_documents_from_mongo_collection(images_collection))
+
