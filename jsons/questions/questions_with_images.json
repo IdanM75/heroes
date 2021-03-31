@@ -5,6 +5,7 @@
       "category": "גירושים",
       "year": "1942",
       "extension": "",
+      "image_type": "img",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//1501-2000/1586-1604/1597_238.JPG?width=400",
       "answer_options": [
         {
@@ -30,6 +31,7 @@
       "category": "תקופה שלפני המלחמה",
       "year": "1932",
       "extension": "",
+      "image_type": "img",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//3001-4000/3436-3550/3472_2.JPG?width=400",
       "answer_options": [
         {
@@ -55,6 +57,7 @@
       "category": "אסירים",
       "year": "1935",
       "extension": "תורת הגזע היא תאוריה פסבדו-מדעית המקטלגת את המין האנושי לגזעים המקיימים סדר היררכי, כך שחלק מהגזעים עליונים ביחס לאחרים.",
+      "image_type": "img",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//6001-6500/6326-6452/6361_18.jpg?width=400  ",
       "answer_options": [
         {
@@ -79,6 +82,7 @@
       "question_text": "חוקי נירנברג היו חוקי גזע בימי שלטון גרמניה הנאצית, אשר הגדירו מיהו אזרח גרמני.חוקים אלו נוסחו בכנס ועידת המפלגה הנאצית. מה נקבע בחוקים אלו?",
       "category": "אסירים",
       "year": "1935",
+      "image_type": "img",
       "extension": "",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//1501-2000/1501-1585/1584_307.JPG?width=400 ",
       "answer_options": [
@@ -105,6 +109,7 @@
       "category": "מרד Warszawa הפולני,1944",
       "year": "1943",
       "extension": "מרדכי אנילֶביץ היה מפקד הארגון היהודי הלוחם במרד גטו ורשה. נהרג בקרב מול הנאצים בגטו. בחייו ניחן בכושר מנהיגות בולט, ולאחר מותו נחרטה אישיותו כסמל לאומץ ולהקרבה. עד היום מייצגת דמותו את ההתנגדות היהודית בשואה.",
+      "image_type": "img",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//1501-2000/1605/1605_374A.jpg?width=400",
       "answer_options": [
         {
@@ -128,6 +133,7 @@
     {
       "question_text": "מה הייחודיות של מרד גטו ורשה לעומת פעולות מרד אחרים?",
       "category": "מרד Warszawa הפולני,1944",
+      "image_type": "img",
       "year": "1943",
       "extension": "",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//1501-2000/1605/1605_611.jpg?width=400",
@@ -153,6 +159,7 @@
     {
       "question_text": "מה היה מחנה הריכוז הראשון שהוקם על ידי הנאצים?",
       "category": "מחנות",
+      "image_type": "img",
       "year": "1933",
       "extension": "מחנות הריכוז הנאצים הראשונים הוקמו בגרמניה במרץ 1933, עם עליית הנאצים לשלטון וכניסתו של אדולף היטלר לתפקיד קנצלר גרמניה, ועם העברת השליטה על המשטרה לידי המפלגה הנאצית.",
       "image_url":"https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//1A-245G/1A-35G/10BO6_.jpg?width=400",
@@ -180,6 +187,7 @@
       "question_text": "איזה אות קלון אולצו היהודים לשאת?",
       "category": "אות קלון",
       "year": "1939",
+      "image_type": "img",
       "extension": "הטלאי הצהוב הוא צורת מגן דוד מבד צהוב, ידוע בעיקר כסימן מזהה ואות קלון. בשטחי הכיבוש של גרמניה הנאצית בתקופת השואה חייבו השלטונות את היהודים לשאת אותו על בגדיהם. הטלאי הצהוב הונהג כסימן מזהה ליהודים על ידי שלטונות האסלאם והנצרות בימי הביניים, כחלק מחקיקה אנטי-יהודית והשפלה אנטישמית.",
       "image_url": " ",
       "answer_options": [
@@ -205,6 +213,7 @@
       "question_text": "באיזו דרך נלחמו היהודים בנאצים?",
       "category": "מרד Warszawa הפולני,1944",
       "year": "1944",
+      "image_type": "img",
       "extension": "",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//1A-245G/1A-35G/2BO8_.jpg?width=400",
       "answer_options": [
@@ -230,6 +239,7 @@
       "question_text": "בתקופת השואה נדרשו מאמצים רבים מהיהודים לחיות על פי תפיסת עולמם הרוחנית והדתית. ברוב איזורי הקיבוץ הנאצים, נאסר על היהודים לקיים כל חיי תרבות ודת. באיזה דרך בכל זאת הצליחו היהודים לשמר על מנהגיהם ודתם במהלך התקופה הזאת",
       "category": "חיי דת - לבוש",
       "year": "1941",
+      "image_type": "img",
       "extension": "",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//1A-245G/36A-71G/69FO7_.jpg?width=400",
       "answer_options": [
@@ -255,6 +265,7 @@
       "question_text": "מדוע 'ליל הבדולח' נקרא בשם זה?",
       "category": "הריסות",
       "year": "1938",
+      "image_type": "img",
       "extension": "ליל הבדולח הוא הכינוי ללילה שבין 9 ל-10 בנובמבר 1938, שבו נערך בכל רחבי הרייך השלישי(גרמניה ואוסטריה) פוגרום ביהודים",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//1001-1500/1001-1091/1014_5_1.jpg?width=400",
       "answer_options": [
@@ -280,6 +291,7 @@
       "question_text": "מה הם התנאים שהקשו על היהודים לארגן התקוממות נגד הנאצים?",
       "category": "ניצולי שואה",
       "year": "1942",
+      "image_type": "img",
       "extension": "",
       "answer_options": [
         {
@@ -304,6 +316,7 @@
       "question_text": "מהו פירוש המושג 'חסיד אומות העולם'?",
       "category": "חסידי אומות העולם",
       "year": "1945",
+      "image_type": "img",
       "extension": "סיכון החיים היה כפול: הן מצד הגרמנים והן מצד שכניהם בני עמם מהפחד שילשינו עליהם. העונשים להסתרה היו חמורים, ואיימו על חיי המסתירים. במזרח אירופה הרגו הגרמנים לא רק את המסתירים אלא גם את בני משפחותיהם. במערב אירופה העונשים היו חמורים פחות, אולם גם שם התוצאות יכלו להיות טרגיות. אחדים מחסידי אומות העולם במערב אירופה נאסרו ונשלחו למחנות ונספו שם. אזרחים מקומיים רבים באירופה סיכנו את נפשם למען הצלת יהודים.",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//1A-245G/36A-71G/69DO8_.jpg?width=400",
       "answer_options": [
@@ -329,6 +342,7 @@
       "question_text": "'מדוע יאנוש קורצ'ק קיבל את התואר 'חסיד אומות עולם?",
       "category": "ילדים",
       "year": "1942",
+      "image_type": "img",
       "extension": "קורצ'אק היה ממבשרי הפעילות למען זכויות הילד ושוויון הזכויות לילדים. בתי היתומים שהקים וניהל היו אחד הניסיונות המוקדמים בחינוך דמוקרטי, שכללו גם בית דין של ילדים. אחד מהחלוצים בתחום שיקום ילדים ובני נוער ואבחון חינוכי, ומחלוצי המחקר בתחום ההתפתחות הפיזית והנפשית של הילד.",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//3001-4000/3310-3389/3380_1253.jpg?width=400",
       "answer_options": [
@@ -354,6 +368,7 @@
       "question_text": "מה הייתה מטרתו העיקרית של ארגון המחתרת 'עונג שבת'?",
       "category": "גטו",
       "year": "1940",
+
       "extension": "עמנואל רינגלבלום(ממובילי הארגון) היה מודע לכך שהארועים הפוקדים את היהודים תחת משטר הכיבוש הינם חסרי תקדים, והוא האמין שחיוני לאפשר להיסטוריונים מהדורות הבאים להשיג חומר מתועד בדקדקנות.",
       "answer_options": [
         {
@@ -379,6 +394,7 @@
       "category": "אנטישמיות",
       "year": "1934",
       "extension": "",
+      "image_type": "img",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika/9501-10000/9751-10000/9760_4.jpg?width=400",
       "answer_options": [
         {
@@ -403,6 +419,7 @@
       "question_text": "מה יהודים נדרשו לעשות על מנת לשרוד בשואה?",
       "category": "גדרות תיל",
       "year": "1942",
+      "image_type": "img",
       "extension": "",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//Albums/211-245/214_62.JPG?width=400",
       "answer_options": [
@@ -429,6 +446,7 @@
       "category": "יודנרט",
       "year": "1943",
       "extension": "היודנראט היה מוסד שלטון יהודי שהיה ממונה על תיווך בין השלטון הנאצי לבין הקהילה היהודית. היה זה מוסד זמני שנועד בדיעבד לקיים את המדיניות הנאצית שקדמה לפתרון הסופי של שאלת היהודים. יודנראטים קמו בפקודת הגרמנים בקהילות יהודיות בשטחי הכיבוש הנאצי בתקופת השואה.",
+      "image_type": "img",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//7001-7500/7001-7003/7002_35.jpg?width=400",
       "answer_options": [
         {
@@ -454,6 +472,7 @@
       "category": "אנטישמיות",
       "year": "1942",
       "extension": "ועידת ואנזה הייתה התכנסות של נציגים מכל משרדי הממשל הנאצי, שהתקיימה ב-20 בינואר 1942 ב'וילה ואנזה' שברחוב 'אם גרוסן ואנזה'בפרבר ואנזה שבברלין",
+      "image_type": "img",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika//6001-6500/6173-6325/6284_38.jpg?width=400",
       "answer_options": [
         {
@@ -479,6 +498,7 @@
       "category": "אנטישמיות",
       "year": "1945",
       "extension": "",
+      "image_type": "img",
       "image_url": "https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika/10001-10500/10251-10500/10346/10346_53.jpg?width=400",
       "answer_options": [
         {
@@ -504,6 +524,7 @@
       "category": "יערות",
       "year": "1939",
       "extension": "",
+      "image_type": "img",
       "image_url":"https://photos.yadvashem.org/remote/namesfs.yadvashem.org//arch_srika/9501-10000/9751-10000/9969_6.jpg?width=400 ",
       "answer_options": [
         {
