@@ -1,5 +1,6 @@
 import os
 import json
+import  json
 import matplotlib.pyplot as plt
 
 from dateutil.parser import parse, ParserError
@@ -55,3 +56,18 @@ def check_images_years_month_dist(curr_dir, images_jsons_dir):
     plt.show()
     plt.hist(months, bins=100, range=[0, 30])
     plt.show()
+
+
+def add_category_to_images_json(curr_dir, images_jsons_dir):
+    images_list = []
+
+    full_path_images_jsons_1 = os.path.join(curr_dir, '{}/{}'.format(images_jsons_dir, "images_jsons_11.json"))
+    with open(full_path_images_jsons_1, 'r', encoding="utf-8") as f:
+        images_dict = json.load(f)
+        for image_dict in images_dict['d']:
+            image_dict["category"] = "ילדים"
+    with open(full_path_images_jsons_1, 'w', encoding="utf-8") as f:
+        json.dump(images_dict, f, ensure_ascii=False)
+
+
+

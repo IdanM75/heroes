@@ -169,8 +169,13 @@
         },
 
         {
+<<<<<<< Updated upstream:jsons/questions/questions.json
         "question_text":"מה הם התנאים שהקשו על היהודים לארגן התקוממות נגד הנאצים",
         "category":"ניצולי שואה",
+=======
+        "question_text":" מה הם התנאים שהקשו על היהודים לארגן התקוממות נגד הנאצים ",
+            "catagory":"ניצולי שואה",
+>>>>>>> Stashed changes:jsons/questions/questions_2.json
         "year":"1942",
         "extension":"",
         "answer_options": [
