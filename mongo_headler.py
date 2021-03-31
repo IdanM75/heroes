@@ -15,7 +15,7 @@ def delete_all_documents_in_mongo_collection(collection):
 
 def insert_images_to_mongo(curr_dir, images_jsons_dir, images_collection):
     images_list = load_jsons_images(curr_dir, images_jsons_dir)
-    for image_dict in images_list['d']:
+    for image_dict in images_list:
         try:
             doc_year = parse(image_dict["title"], fuzzy=True).year
             desired_document = {
