@@ -3,6 +3,7 @@ import json
 import random
 from dateutil.parser import parse, ParserError
 from calendar import IllegalMonthError
+from jsons_files_handler import load_jsons_images, load_jsons_questions
 
 
 def get_all_documents_from_mongo_collection(collection):
@@ -14,39 +15,33 @@ def delete_all_documents_in_mongo_collection(collection):
 
 
 def insert_images_to_mongo(curr_dir, images_jsons_dir, images_collection):
-    for filename in os.listdir(images_jsons_dir):
-        full_filename = os.path.join(curr_dir, '{}/{}'.format(images_jsons_dir, filename))
-        with open(full_filename, 'r') as f:
-            images_dict_list = json.load(f)
-            for image_dict in images_dict_list['d']:
-                try:
-                    doc_year = parse(image_dict["title"], fuzzy=True).year
-                    desired_document = {
-                        "book_id": image_dict["book_id"],
-                        "multimedia": image_dict["multimedia"],
-                        "multimedia_bk": image_dict["multimedia_bk"],
-                        "title": image_dict["title"],
-                        "archivalsignature": image_dict["archivalsignature"],
-                        "credit": image_dict["credit"],
-                        "year": doc_year
-                    }
-                    doc_id = images_collection.insert_one(desired_document).inserted_id
-                    print(doc_id)
-                except (ParserError, IllegalMonthError, TypeError):
-                    pass
+    images_list = load_jsons_images(curr_dir, images_jsons_dir)
+    for image_dict in images_list['d']:
+        try:
+            doc_year = parse(image_dict["title"], fuzzy=True).year
+            desired_document = {
+                "book_id": image_dict["book_id"],
+                "multimedia": image_dict["multimedia"],
+                "multimedia_bk": image_dict["multimedia_bk"],
+                "title": image_dict["title"],
+                "archivalsignature": image_dict["archivalsignature"],
+                "credit": image_dict["credit"],
+                "year": doc_year
+            }
+            doc_id = images_collection.insert_one(desired_document).inserted_id
+            print(doc_id)
+        except (ParserError, IllegalMonthError, TypeError):
+            pass
 
 
 def insert_questions_to_mongo(curr_dir, questions_jsons_dir, questions_collection):
-    for filename in os.listdir(questions_jsons_dir):
-        full_filename = os.path.join(curr_dir, '{}/{}'.format(questions_jsons_dir, filename))
-        with open(full_filename, 'r') as f:
-            documents_dict = json.load(f)
-            for document in documents_dict:
-                try:
-                    doc_id = questions_collection.insert_one(document).inserted_id
-                    print(doc_id)
-                except (ParserError, IllegalMonthError, TypeError):
-                    pass
+    questions_list = load_jsons_questions(curr_dir, questions_jsons_dir)
+    for question_dict in questions_list:
+        try:
+            doc_id = questions_collection.insert_one(question_dict).inserted_id
+            print(doc_id)
+        except (ParserError, IllegalMonthError, TypeError):
+            pass
 
 
 def _get_images_from_mongo_by_year(images_collection, year):

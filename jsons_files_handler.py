@@ -6,6 +6,28 @@ from dateutil.parser import parse, ParserError
 from calendar import IllegalMonthError
 
 
+def load_jsons_images(curr_dir, images_jsons_dir):
+    images_list = []
+    for filename in os.listdir(images_jsons_dir):
+        full_filename = os.path.join(curr_dir, '{}/{}'.format(images_jsons_dir, filename))
+        with open(full_filename, 'r') as f:
+            images_dict = json.load(f)
+            for image_dict in images_dict['d']:
+                images_list.append(image_dict)
+    return images_list
+
+
+def load_jsons_questions(curr_dir, questions_jsons_dir):
+    questions_list = []
+    for filename in os.listdir(questions_jsons_dir):
+        full_filename = os.path.join(curr_dir, '{}/{}'.format(questions_jsons_dir, filename))
+        with open(full_filename, 'r') as f:
+            questions_dict = json.load(f)
+            for question in questions_dict["questions"]:
+                questions_list.append(question)
+    return questions_list
+
+
 def count_images_in_jsons(curr_dir, images_jsons_dir):
     documents_count = 0
     for filename in os.listdir(images_jsons_dir):
