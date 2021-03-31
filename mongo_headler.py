@@ -23,7 +23,7 @@ def insert_images_to_mongo(curr_dir, images_jsons_dir, images_collection):
     images_list = load_jsons_images(curr_dir, images_jsons_dir)
     for image_dict in images_list:
         try:
-            doc_year = parse(image_dict["title"], fuzzy=True).year
+            # doc_year = parse(image_dict["title"], fuzzy=True).year
             desired_document = {
                 "book_id": image_dict["book_id"],
                 "multimedia": image_dict["multimedia"],
@@ -31,7 +31,8 @@ def insert_images_to_mongo(curr_dir, images_jsons_dir, images_collection):
                 "title": image_dict["title"],
                 "archivalsignature": image_dict["archivalsignature"],
                 "credit": image_dict["credit"],
-                "year": doc_year
+                # "year": doc_year,
+                "category": image_dict["category"]
             }
             doc_id = images_collection.insert_one(desired_document).inserted_id
             print(doc_id)
@@ -55,26 +56,28 @@ def insert_questions_to_mongo(curr_dir, questions_jsons_dir, questions_collectio
             pass
 
 
-def _get_images_from_mongo_by_year(images_collection, year):
-    """
-    The function get image from images_collection and return image respectively to the desired year
-    :param images_collection: mongo collection, contain all images_collection
-    :param year: int, the desired year
-    :return: image respectively to the desired year
-    """
-    cursor = images_collection.find({"year": year})
+def _get_images_from_mongo_by_condition(images_collection, condition):
+    cursor = images_collection.find(condition)
     return [image["multimedia"] for image in cursor]
 
 
-def get_random_image_from_mongo_by_year(images_collection, year):
-    """
-    The function get image from images collectionm with respectively year and return a random image
-    :param images_collection: mongo collection, contain all images_collection
-    :param year: int, the desired year
-    :return: random image respectively to the desired year
-    """
+# def get_random_image_from_mongo_by_year(images_collection, year):
+#     """
+#     The function get image from images collectionm with respectively year and return a random image
+#     :param images_collection: mongo collection, contain all images_collection
+#     :param year: int, the desired year
+#     :return: random image respectively to the desired year
+#     """
+#     try:
+#         images = _get_images_from_mongo_by_condition(images_collection, {"year": year})
+#         return random.choice(images)
+#     except IndexError:
+#         return None
+
+
+def get_random_image_from_mongo_by_category(images_collection, category):
     try:
-        images = _get_images_from_mongo_by_year(images_collection, year)
+        images = _get_images_from_mongo_by_condition(images_collection, {"category": category})
         return random.choice(images)
     except IndexError:
         return None
