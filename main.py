@@ -34,19 +34,20 @@ def get_all_questions():
         return {"error": "error"}
 
 
-@app.route("/get_top_10_random_questions")
+@app.route("/get_top_10_random_sorted_questions")
 @cross_origin()
-def get_top_10_random_questions():
+def get_top_10_random_sorted_questions():
     try:
         questions = get_all_documents_from_mongo_collection(QUESTIONS_COLLECTION)
         random.shuffle(questions)
         questions = questions[:10]
+        questions = sorted(questions, key=lambda k: k["year"])
         for question in questions[:10]:
             question.pop('_id', None)
             question["type"] = "img"
             question["image_url"] = get_random_image_from_mongo_by_year(IMAGES_COLLECTION, int(question["year"]))
         return {"questions": questions}
-    except KeyError:
+    except (KeyError, ValueError):
         return {"error": "error"}
 
 
