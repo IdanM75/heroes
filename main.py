@@ -15,6 +15,7 @@ app.config["CORS_HEADERS"] = "Content-Type"
 
 
 @app.route('/')
+@cross_origin()
 def hello():
     return "Hello World!"
 
