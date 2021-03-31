@@ -1,6 +1,5 @@
-import os
-import json
 import random
+
 from dateutil.parser import parse, ParserError
 from calendar import IllegalMonthError
 from jsons_files_handler import load_jsons_images, load_jsons_questions
