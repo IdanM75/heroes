@@ -1,7 +1,7 @@
 import os
 import random
 
-from mongo_headler import get_all_documents_from_mongo_collection, get_random_image_from_mongo_by_category, \
+from mongo_handler import get_all_documents_from_mongo_collection, get_random_image_from_mongo_by_category, \
     repopulate_images_collection, repopulate_questions_collection
 from flask import Flask
 from pymongo import MongoClient
